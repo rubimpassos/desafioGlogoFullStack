@@ -104,7 +104,12 @@ optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-numpy = {version = ">=1.21.0", markers = "python_version >= \"3.10\""}
+numpy = [
+    {version = ">=1.18.5", markers = "platform_machine != \"aarch64\" and platform_machine != \"arm64\" and python_version < \"3.10\""},
+    {version = ">=1.19.2", markers = "platform_machine == \"aarch64\" and python_version < \"3.10\""},
+    {version = ">=1.20.0", markers = "platform_machine == \"arm64\" and python_version < \"3.10\""},
+    {version = ">=1.21.0", markers = "python_version >= \"3.10\""},
+]
 python-dateutil = ">=2.8.1"
 pytz = ">=2020.1"
 
@@ -190,6 +195,17 @@ docs = ["sphinx", "sphinx-rtd-theme"]
 testing = ["django", "django-configurations (>=2.0)"]
 
 [[package]]
+name = "pytest-unordered"
+version = "0.4.1"
+description = "Test equality of unordered collections in pytest"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pytest = ">=6.0.0"
+
+[[package]]
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
@@ -242,8 +258,8 @@ python-versions = ">=2"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "ee93cf8df31c5a6c771011442d5f473166da3283ee2b724c10947850c729952b"
+python-versions = "^3.9"
+content-hash = "f1220ba2cbec26889584eb74c3437d4a8e098b6e0e8f1355ccc2bfb088b6f7cb"
 
 [metadata.files]
 asgiref = [
@@ -346,6 +362,10 @@ pytest-datadir = [
 pytest-django = [
     {file = "pytest-django-4.5.2.tar.gz", hash = "sha256:d9076f759bb7c36939dbdd5ae6633c18edfc2902d1a69fdbefd2426b970ce6c2"},
     {file = "pytest_django-4.5.2-py3-none-any.whl", hash = "sha256:c60834861933773109334fe5a53e83d1ef4828f2203a1d6a0fa9972f4f75ab3e"},
+]
+pytest-unordered = [
+    {file = "pytest-unordered-0.4.1.tar.gz", hash = "sha256:a29d460682d9ffee693e2f8a74d8fc206e50353e03aa4ef49a6e190d776001e1"},
+    {file = "pytest_unordered-0.4.1-py3-none-any.whl", hash = "sha256:cf6162b681fb9a75e1e8597227b024617c1224200edb193ab914165a38cd02ce"},
 ]
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},

@@ -318,7 +318,7 @@ case_09_valid = pytest.param(
     case_08_valid,
     case_09_valid,
 ])
-def test_get_foods_from_valid_file(shared_datadir , file_path, expected_data):
+def test_get_foods_from_valid_file(shared_datadir, file_path, expected_data):
     """Precisa retornar os dados do arquivo em um Dataframe"""
     # print os files
     os.listdir(shared_datadir)
@@ -327,7 +327,7 @@ def test_get_foods_from_valid_file(shared_datadir , file_path, expected_data):
     assert_frame_equal(food_df, pd.DataFrame(
         expected_data,
         columns=[
-            "NOME", "QUANTIDADE", "PROTEINAS", "CARBOIDRATOS", "GORDURA"
+            "name", "quantity", "proteins", "carbohydrates", "fats"
         ],
         dtype=float64
     ))

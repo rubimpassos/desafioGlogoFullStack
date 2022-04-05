@@ -14,6 +14,6 @@ def get_foods_from_file(file_path):
 
         return pd.DataFrame(
             data,
-            columns=["NOME", "QUANTIDADE", "PROTEINAS", "CARBOIDRATOS", "GORDURA"],
+            columns=["name", "quantity", "proteins", "carbohydrates", "fats"],
             dtype=float64,
         )
