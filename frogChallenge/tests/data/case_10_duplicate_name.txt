@@ -1,0 +1,4 @@
+NOME                                 QUANTIDADE PROTEINAS CARBOIDRATOS GORDURA
+------------------------------------ ---------- --------- ------------ -------
+Pasta de soja                         100       5          22           50
+Pasta de soja                         100        2          2          51
