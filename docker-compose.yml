@@ -1,0 +1,39 @@
+version: '3'
+
+volumes:
+  local-postgres-data: {}
+  local-postgres-data-backups: {}
+  local-flower: {}
+
+services:
+  backend:
+    image: backend
+    build:
+      context: .
+      dockerfile: ./compose/backend/Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+
+  frontend:
+    image: frontend
+    build:
+      context: .
+      dockerfile: ./compose/frontend/Dockerfile
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    command: yarn start
+
+  proxy:
+    image: nginx:alpine
+    environment:
+      - NGINX_WORKER_PROCESSES=2
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./compose/proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
