@@ -8,23 +8,24 @@ import store from './store';
 
 const App = () => (
   <div className="App">
-    <header className="App-header">
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
     <Provider store={store}>
+      <FoodList title="Todos os alimentos" />
       <FoodList
+        title="Alimentos com mais proteínas"
         filters={{
           greatest: 'proteins',
+        }}
+      />
+      <FoodList
+        title="Alimentos com mais carboidratos"
+        filters={{
+          greatest: 'carbohydrates',
+        }}
+      />
+      <FoodList
+        title="Alimentos com mais gorduras"
+        filters={{
+          greatest: 'fats',
         }}
       />
     </Provider>

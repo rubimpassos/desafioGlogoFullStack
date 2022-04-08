@@ -8,6 +8,7 @@ import { ApplicationState } from '../../store';
 import * as FoodsActions from '../../store/ducks/foods/action';
 
 interface StateProps {
+  title: string;
   foods: Food[];
   // eslint-disable-next-line react/require-default-props
   filters?: FoodQueryFilter;
@@ -19,14 +20,14 @@ interface DispatchProps {
 
 type Props = StateProps & DispatchProps;
 
-const FoodList: React.FC<Props> = ({ foods, filters, loadRequest }) => {
+const FoodList: React.FC<Props> = ({ title, foods, filters, loadRequest }) => {
   useEffect(() => {
     loadRequest(filters);
   }, [filters, loadRequest]);
 
   return (
     <div>
-      <h1>Food List</h1>
+      <h1>{title}</h1>
       <table>
         <thead>
           <tr>
