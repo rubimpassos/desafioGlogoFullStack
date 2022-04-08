@@ -14,15 +14,6 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 Para instalar o projeto, siga estas etapas:
 
-Linux e macOS:
-```
-docker-compose -f docker-compose.yml run --rm backend python manage.py migrate
-docker-compose -f docker-compose.yml run --rm backend python manage.py createsuperuser
-# Informe o nome de usuário e senha do usuário `admin`
-docker-compose -f docker-compose.yml up -d
-```
-
-Windows:
 ```
 docker-compose -f docker-compose.yml run --rm backend python manage.py migrate
 docker-compose -f docker-compose.yml run --rm backend python manage.py createsuperuser
