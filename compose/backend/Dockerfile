@@ -20,8 +20,8 @@ RUN python -m pip install --upgrade pip \
   && python -m pip install poetry==1.1.13
 
 # Requirements are installed here to ensure they will be cached.
-COPY poetry.lock /poetry.lock
-COPY pyproject.toml /pyproject.toml
+COPY ./backend/poetry.lock /poetry.lock
+COPY ./backend/pyproject.toml /pyproject.toml
 RUN poetry config virtualenvs.create false && poetry install
 
 WORKDIR /app
