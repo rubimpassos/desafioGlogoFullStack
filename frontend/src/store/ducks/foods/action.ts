@@ -1,7 +1,8 @@
-import { FoodsTypes, Food } from './types';
+import { FoodsTypes, FoodQueryFilter, Food } from './types';
 
-export const loadRequest = () => ({
+export const loadRequest = (filters?: FoodQueryFilter) => ({
   type: FoodsTypes.LOAD_REQUEST,
+  filters,
 });
 
 export const loadSuccess = (data: Food[]) => ({

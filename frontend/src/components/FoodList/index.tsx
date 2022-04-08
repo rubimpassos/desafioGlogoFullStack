@@ -2,25 +2,27 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { Food } from '../../store/ducks/foods/types';
+import { Food, FoodQueryFilter } from '../../store/ducks/foods/types';
 import { ApplicationState } from '../../store';
 
 import * as FoodsActions from '../../store/ducks/foods/action';
 
 interface StateProps {
   foods: Food[];
+  // eslint-disable-next-line react/require-default-props
+  filters?: FoodQueryFilter;
 }
 
 interface DispatchProps {
-  loadRequest(): void;
+  loadRequest(filters?: FoodQueryFilter): void;
 }
 
 type Props = StateProps & DispatchProps;
 
-const FoodList: React.FC<Props> = ({ foods, loadRequest }) => {
+const FoodList: React.FC<Props> = ({ foods, filters, loadRequest }) => {
   useEffect(() => {
-    loadRequest();
-  }, [loadRequest]);
+    loadRequest(filters);
+  }, [filters, loadRequest]);
 
   return (
     <div>

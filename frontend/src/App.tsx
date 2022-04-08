@@ -22,7 +22,11 @@ const App = () => (
       </a>
     </header>
     <Provider store={store}>
-      <FoodList />
+      <FoodList
+        filters={{
+          greatest: 'proteins',
+        }}
+      />
     </Provider>
   </div>
 );

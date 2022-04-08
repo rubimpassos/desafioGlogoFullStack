@@ -8,6 +8,15 @@ export enum FoodsTypes {
   LOAD_FAILURE = '@foods/LOAD_FAILURE',
 }
 
+export interface FoodQueryFilter {
+  greatest: `calories` | `carbohydrates` | `proteins` | `fats`;
+}
+
+export interface GetFoodAction {
+  type: FoodsTypes.LOAD_REQUEST;
+  filters: FoodQueryFilter;
+}
+
 /**
  * Data Types
  */
