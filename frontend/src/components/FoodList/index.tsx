@@ -6,6 +6,7 @@ import { Food, FoodQueryFilter } from '../../store/ducks/foods/types';
 import { ApplicationState } from '../../store';
 
 import * as FoodsActions from '../../store/ducks/foods/action';
+import FoodItem from '../FoodItem';
 
 interface StateProps {
   title: string;
@@ -40,13 +41,7 @@ const FoodList: React.FC<Props> = ({ title, foods, filters, loadRequest }) => {
         </thead>
         <tbody>
           {foods.map((food) => (
-            <tr key={food.id}>
-              <td>{food.name}</td>
-              <td>{food.quantity}</td>
-              <td>{food.proteins}</td>
-              <td>{food.carbohydrates}</td>
-              <td>{food.fats}</td>
-            </tr>
+            <FoodItem key={food.id} food={food} />
           ))}
         </tbody>
       </table>
